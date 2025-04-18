@@ -4,16 +4,10 @@ class PhotosController < ApplicationController
   # GET /photos or /photos.json
   def index
     @photos = Photo.all
-
-    @user = User.find(current_user.id)
-    
-    @user.own_photos = Photo.where(owner_id: @user).order(created_at: :desc)
-  
   end
 
   # GET /photos/1 or /photos/1.json
   def show
-    
   end
 
   # GET /photos/new
@@ -28,7 +22,7 @@ class PhotosController < ApplicationController
   # POST /photos or /photos.json
   def create
     @photo = Photo.new(photo_params)
- 
+
     respond_to do |format|
       if @photo.save
         format.html { redirect_to @photo, notice: "Photo was successfully created." }
