@@ -23,5 +23,4 @@ class Comment < ApplicationRecord
   belongs_to :photo, counter_cache: true
 
   validates :body, presence: true
-  scope :default_order, -> { order(created_at: :asc) }
 end
