@@ -1,16 +1,25 @@
+<!--<p style="color: green">< notice ></p>
 
-
-<% content_for :title, "Photos" %>
+< content_for :title, "Photos" >
 
 <h1>Photos</h1>
 
 <div id="photos">
-  <% @photos.each do |photo| %>
-    <%= render photo %>
-    <p>
-      <%= link_to "Show this photo", photo %>
-    </p>
-  <% end %>
-</div>
+  < @photos.each  |photo| >
+    < render photo >
+  <  >
+</div>-->
+<div class="row mb-4">
+  <div class="col-md-6 offset-md-3">
+    <h1 class="display-4">
+      feed
+    </h1>
 
-<%= link_to "New photo", new_photo_path %>
+    <p class="lead text-muted">posts by people you follow</p>
+  </div>
+  <div id="photos">
+  <% @user.own_photos.each do |photo| %>
+    <%= render "photos/photo", photo: photo %>
+  <% end %>
+  </div>
+</div>
